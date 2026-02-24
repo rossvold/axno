@@ -1,0 +1,38 @@
+services:
+  dev:
+    build:
+      context: .
+      target: development
+      network: host
+    # Disable Bake/buildx to avoid warning
+    x-bake: {}
+    container_name: axno-no
+    # Use host networking to avoid Docker bridge network issues
+    network_mode: host
+    volumes:
+      # Mount source code for hot reload
+      - .:/app
+      # Bind mount node_modules so the host can read it (for LSP), but all installs still run in Docker
+      - ./node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    # Running as root for development to avoid permission issues with node_modules bind mount
+    # If you want to run as non-root, ensure node_modules exists on host with correct ownership:
+    #   mkdir -p node_modules && sudo chown -R $UID:$GID node_modules
+    # Then uncomment:
+    user: "${UID:-1000}:${GID:-1000}"
+
+    # if no node_modules, runs pnpm install
+    # Container stays running so you can manually run commands in the docker window
+    command: >
+      sh -c "
+        if [ ! -d node_modules/.pnpm ]; then
+          pnpm install;
+        fi;
+        tail -f /dev/null
+      "
+
+# No named volumes needed - using bind mount for node_modules

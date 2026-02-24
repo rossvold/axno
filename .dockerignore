@@ -1,0 +1,55 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build outputs
+.svelte-kit
+build
+dist
+.output
+.vercel
+.netlify
+.wrangler
+
+# Environment files
+.env
+.env.*
+!.env.example
+!.env.test
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+coverage
+.nyc_output
+*.log
+
+# Misc
+*.md
+!README.md
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# Kamal
+.kamal
+config/deploy.yml
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+
+
