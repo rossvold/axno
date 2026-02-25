@@ -6,6 +6,7 @@ export const productSupplier = sqliteTable("product_supplier", {
   name: text("name").notNull(),
   description: text("description"),
   email: text("email"),
+  phone: text("phone"),
   address: text("address"),
   grosisst: text("grosisst"),
   note: text("note"),

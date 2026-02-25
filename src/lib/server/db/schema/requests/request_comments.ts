@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
 import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
-import { user } from "../user/user";
+import { user } from '../auth.schema';
 
 export const adminRequestComments = sqliteTable("admin_request_comments", {
   id: text("id").primaryKey(),

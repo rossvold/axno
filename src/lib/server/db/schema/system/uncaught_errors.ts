@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
 import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
-import { user } from "../user/user";
+import { user } from '../auth.schema';
 
 export const uncaught_errors = sqliteTable("uncaught_errors", {
   id: text("id").primaryKey(),

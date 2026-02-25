@@ -2,7 +2,7 @@ import { randomUUID } from 'node:crypto';
 import { getStrexClient } from './createClient';
 import type { OutMessage, SendSmsBatchItem, SendSmsOptions } from './types';
 import type { LibSQLDatabase } from 'drizzle-orm/libsql';
-import * as schema from '$lib/db/schema';
+import * as schema from '$lib/server/db/schema';
 import { env } from '$env/dynamic/private';
 
 /**

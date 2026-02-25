@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
 import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
-import { product_stock } from "./product_stock";
+import { product_stock } from './stock';
 
 export const product_stock_history = sqliteTable("product_stock_history", {
   id: text("id").primaryKey(), // UUID for unique identification
@@ -9,7 +9,7 @@ export const product_stock_history = sqliteTable("product_stock_history", {
   amount_changed: integer("amount_changed").notNull(), // Positive or negative value
   value_before: integer("value_before").notNull(), // Stock value before change
   value_after: integer("value_after").notNull(), // Stock value after change
-  user_id: text("user_id").notNull(), // Who made the change (references S001)
+  user_id: text("user_id").notNull(), // Who made the change (references auth user)
   message: text("message").notNull(), // Description of why change was made
   created_at: integer("created_at", { mode: 'timestamp' }).notNull().default(sql`(unixepoch())`)
 });
