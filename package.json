@@ -18,7 +18,7 @@
 		"db:migrate": "drizzle-kit migrate",
 		"db:push": "drizzle-kit push",
 		"db:studio": "drizzle-kit studio",
-		"auth:schema": "npx @better-auth/cli generate --config src/lib/server/auth.ts --output src/lib/server/db/auth.schema.ts --yes",
+		"auth:schema": "pnpx @better-auth/cli generate --config src/lib/server/auth.ts --output src/lib/server/db/auth.schema.ts --yes",
 		"backup:axno": "mkdir -p backup/turso_backup && turso db export axno --output-file backup/turso_backup/axno.db --overwrite"
 	},
 	"devDependencies": {
@@ -66,6 +66,8 @@
 		"flowbite-svelte": "^1.31.0",
 		"flowbite-svelte-icons": "^3.1.0",
 		"jspdf": "^4.2.0",
-		"resend": "^6.9.2"
+		"resend": "^6.9.2",
+		"stripe": "^20.3.1",
+		"target365-sdk": "^1.8.5"
 	}
 }
